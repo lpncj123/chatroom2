@@ -78,14 +78,14 @@ public class User implements HttpSessionBindingListener {
 
 	}
 
-	// 当session和对象解除绑定的时候
+// 当session和对象解除绑定的时候
 	public void valueUnbound(HttpSessionBindingEvent event) {
 		System.out.println("退出了....");
 		HttpSession session = event.getSession();
-		// 获得人员列表
+// 获得人员列表
 		Map<User, HttpSession> userMap = (Map<User, HttpSession>) session
 				.getServletContext().getAttribute("userMap");
-		// 将用户移除了
+// 将用户移除了
 		userMap.remove(this);
 	}
 

@@ -16,19 +16,19 @@ import cn.itcast.utils.BaseServlet;
 import cn.itcast.vo.User;
 
 public class UserServlet extends BaseServlet {
-	/**
-	 * 检查session是否过期
-	 * @throws IOException 
-	 */
+/**
+ * 检查session是否过期
+ * @throws IOException 
+ */
 	public String check(HttpServletRequest req,HttpServletResponse resp) throws IOException{
-		// 从session中获得用户的信息
+// 从session中获得用户的信息
 		User existUser = (User) req.getSession().getAttribute("existUser");
-		// 判断session中的用户是否过期
+// 判断session中的用户是否过期
 		if(existUser == null){
-			// 登录的信息已经过期了!
+// 登录的信息已经过期了!
 			resp.getWriter().println("1");
 		}else{
-			// 登录的信息没有过期
+// 登录的信息没有过期
 			resp.getWriter().println("2");
 		}
 		return null;
