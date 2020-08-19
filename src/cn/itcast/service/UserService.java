@@ -10,6 +10,5 @@ public class UserService {
 		UserDao dao = new UserDaoImple();
 		return dao.login(user);
 	}
-	
-	
+
 }

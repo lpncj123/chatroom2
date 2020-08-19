@@ -15,7 +15,8 @@ public class UserDaoImple implements UserDao {
 		String sql = "select * from user where username = ? and password = ?";
 		User existUser;
 		try {
-			existUser = queryRunner.query(sql, new BeanHandler<User>(User.class), user.getUsername(),user.getPassword());
+			existUser = queryRunner.query(sql, new BeanHandler<User>(User.class), user.getUsername(),
+					user.getPassword());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException("用户登录失败!");

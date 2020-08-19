@@ -57,7 +57,7 @@ public class User implements HttpSessionBindingListener {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public String getType() {
 		return type;
 	}
@@ -66,26 +66,23 @@ public class User implements HttpSessionBindingListener {
 		this.type = type;
 	}
 
-	
 	public void valueBound(HttpSessionBindingEvent event) {
 		System.out.println("进入了....");
 		HttpSession session = event.getSession();
 
-		Map<User, HttpSession> userMap = (Map<User, HttpSession>) session
-				.getServletContext().getAttribute("userMap");
+		Map<User, HttpSession> userMap = (Map<User, HttpSession>) session.getServletContext().getAttribute("userMap");
 
 		userMap.put(this, session);
 
 	}
 
-// 当session和对象解除绑定的时候
+	// 当session和对象解除绑定的时候
 	public void valueUnbound(HttpSessionBindingEvent event) {
 		System.out.println("退出了....");
 		HttpSession session = event.getSession();
-// 获得人员列表
-		Map<User, HttpSession> userMap = (Map<User, HttpSession>) session
-				.getServletContext().getAttribute("userMap");
-// 将用户移除了
+		// 获得人员列表
+		Map<User, HttpSession> userMap = (Map<User, HttpSession>) session.getServletContext().getAttribute("userMap");
+		// 将用户移除了
 		userMap.remove(this);
 	}
 
